@@ -22,6 +22,7 @@
 # API development env files
 /api/.envrc
 /api/.flaskenv
+/api/__pycache__
 
 npm-debug.log*
 yarn-debug.log*
