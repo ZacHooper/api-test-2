@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
   const [currentName, setName] = useState(0);
+  const [currentSnapshot_id, setSnapshot_id] = useState(0);
 
   useEffect(() => {
     fetch('./time').then(res => res.json()).then(data => {
@@ -13,6 +14,10 @@ function App() {
 
     fetch('./name').then(res => res.json()).then(data => {
       setName(data.name)
+    })
+
+    fetch('./api/playlist').then(res => res.json()).then(data => {
+      setSnapshot_id(data.snapshot_id)
     })
   }, []);
 
@@ -33,6 +38,7 @@ function App() {
         </a>
         <p>The current time is {currentTime}.</p>
         <p>My name is {currentName}</p>
+        <p>No Hip Hop Hitlist created with snapshot id of: {currentSnapshot_id}</p>
       </header>
     </div>
   );
